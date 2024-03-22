@@ -1,10 +1,15 @@
 using PomodoroTimer.Components;
+using Radzen;
 
 var builder = WebApplication.CreateBuilder(args);
+
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+// Add Radzen Components
+builder.Services.AddRadzenComponents();
 
 var app = builder.Build();
 
