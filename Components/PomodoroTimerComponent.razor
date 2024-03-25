@@ -1,0 +1,22 @@
+﻿<h3>Timer</h3>
+
+<RadzenStack Orientation="Orientation.Vertical" AlignItems="AlignItems.Center">
+    <RadzenArcGauge Style="width: 100%; height: 500px; background: #fff">
+        <RadzenArcGaugeScale Min="0" Max="12" StartAngle="0" EndAngle="360" Fill="rgba(249, 32, 99, 0.5)">
+            <RadzenArcGaugeScaleValue Value=@RadialProgress Fill="rgb(249, 32, 99)" ShowValue="false" />
+        </RadzenArcGaugeScale>
+    </RadzenArcGauge>
+
+    <RadzenLabel Text="@RemainingTime.ToString()" />
+
+    <RadzenStack Orientation="Orientation.Horizontal">
+        <RadzenButton Text="Start" Click="StartTimer" Disabled="@_stopwatch.IsRunning" />
+        <RadzenButton Text="Stop" Click="@(() => StopTimer(false))" Disabled="@(!_stopwatch.IsRunning)" />
+        <RadzenButton Text="Reset" Click="ResetTimer" />
+    </RadzenStack>
+
+    <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" JustifyContent="JustifyContent.Center">
+        <RadzenLabel Text="Pomodoro Time in minutes:" />
+        <RadzenNumeric @bind-Value=@PomodoroMinutes Min="1" Style="width:30%" Disabled="@(_stopwatch.IsRunning || _stopwatch.Elapsed > TimeSpan.Zero)" />
+    </RadzenStack>
+</RadzenStack>
