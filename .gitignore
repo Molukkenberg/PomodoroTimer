@@ -364,3 +364,4 @@ FodyWeavers.xsd
 
 # Auto generated file
 profile.arm.json
+/Components/App.razor
